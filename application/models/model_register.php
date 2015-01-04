@@ -82,7 +82,7 @@ class Model_Register extends Model
 
 		        mysql_query("INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
 
-		        header("Location: main"); exit();
+		      	return 'Регистрация прошла успешно!';
 
 		    }
 

@@ -15,10 +15,6 @@
 		    <label for="exampleInputPassword2">Повторите пароль</label>
 		    <input type="password" class="form-control" id="exampleInputPassword2" name="repass" placeholder="Password" required>
 		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputFile"></label>
-		    <input type="file" id="exampleInputFile">
-		  </div>
 		  <input name="submit" type="submit" class="btn btn-default" value="Зарегистрироваться">
 		</form>
 		    </div>
