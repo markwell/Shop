@@ -3,37 +3,36 @@
 
 class Model_Login extends Model
 {
-    
+    # Функция для генерации случайной строки
+    public function generateCode($length=6) {
+
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIFJKLMNOPRQSTUVWXYZ0123456789";
+
+        $code = "";
+
+        $clen = strlen($chars) - 1;  
+        while (strlen($code) < $length) {
+
+                $code .= $chars[mt_rand(0,$clen)];  
+        }
+
+        return $code;
+
+    }
+
     public function get_data()
     {
 
-        # Функция для генерации случайной строки
+        
         $error = "";
-        function generateCode($length=6) {
-
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIFJKLMNOPRQSTUVWXYZ0123456789";
-
-            $code = "";
-
-            $clen = strlen($chars) - 1;  
-            while (strlen($code) < $length) {
-
-                    $code .= $chars[mt_rand(0,$clen)];  
-            }
-
-            return $code;
-
-        }
-
-
-
-     
-
+        
             # Вытаскиваем из БД запись, у которой логин равняеться введенному
 
-            $query = mysql_query("SELECT user_id, user_password FROM users WHERE user_login='".$_POST['login']."' LIMIT 1");
+            $query = $DBH->prepare("SELECT user_id, user_password FROM users WHERE user_login=:login LIMIT 1");
+            $query->bindParam(':login', $_POST['login']);
+            $query->execute();
 
-            $data = mysql_fetch_assoc($query);
+            $data = $query->fetchAll();
 
             
 
@@ -51,7 +50,10 @@ class Model_Login extends Model
 
                 # Записываем в БД новый хеш авторизации 
 
-                mysql_query("UPDATE users SET user_hash='".$hash."' WHERE user_id='".$data['user_id']."'");
+                $query = $DBH->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
+                $query->bindParam(':hash', $_POST['login']);
+                $query->bindParam(':id', $data['user_id']);
+                $query->execute();
 
                 
 
@@ -65,7 +67,7 @@ class Model_Login extends Model
 
                 # Переадресовываем браузер на страницу проверки нашего скрипта
 
-                header("Location: check"); 
+                header("Location: main"); 
                 
 
             }
@@ -73,12 +75,12 @@ class Model_Login extends Model
             else
 
             {
-                return "Неправильный пароль";
+                $err = "Неправильный пароль";
 
             }
 
         
-                include "login.html";
+                
 
     }
 }

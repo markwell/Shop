@@ -70,7 +70,10 @@ class Model_Register extends Model
 
 		        
 
-		        mysql_query("INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
+		        $query = $DBH->prepare("INSERT INTO users SET user_login=:login, user_password=:password");
+		        $query->bindParam(":login", $login);
+		        $query->bindParam(":password", $password);
+		        $query->execute();
 
 		      	return 'Регистрация прошла успешно!';
 
