@@ -19,6 +19,7 @@ class Controller_Register extends Controller
     {
     if(isset($_POST['submit'])) 
         {
+            $this->model->db_connect();
             $data = $this->model->get_data();
             $this->view->generate($data, 'template_view.php');
         }

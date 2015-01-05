@@ -17,12 +17,12 @@ class Controller_Login extends Controller
 
     function action_auth()
     {
-
-    if(isset($_POST['submit'])) 
-        {
-            $data = $this->model->get_data();
-            $this->view->generate($data, 'template_view.php');
-        }
+            if(isset($_POST['submit'])) 
+                {
+                    $this->model->db_connect();
+                    $data = $this->model->get_data();
+                    $this->view->generate($data, 'template_view.php');
+                }
         
     }
 }
