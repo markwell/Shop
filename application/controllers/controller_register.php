@@ -4,7 +4,7 @@ class Controller_Register extends Controller
 
     function __construct()
     {
-        $this->model = new Model_Register();
+        $this->model = new Model_Register($DBH);
         $this->view = new View();
     }
     

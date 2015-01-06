@@ -3,6 +3,12 @@
 
 class Model_Login extends Model
 {
+
+    protected $dbh;
+    public function __construct($dbh) {
+    $this->dbh = $dbh;
+    }
+
     # Функция для генерации случайной строки
     public function generateCode($length=6) {
 
@@ -28,7 +34,7 @@ class Model_Login extends Model
         
             # Вытаскиваем из БД запись, у которой логин равняеться введенному
 
-            $query = $DBH->prepare("SELECT user_id, user_password FROM users WHERE user_login=:login LIMIT 1");
+            $query = $this->dbh->prepare("SELECT user_id, user_password FROM users WHERE user_login=:login LIMIT 1");
             $query->bindParam(':login', $_POST['login']);
             $query->execute();
 
@@ -50,7 +56,7 @@ class Model_Login extends Model
 
                 # Записываем в БД новый хеш авторизации 
 
-                $query = $DBH->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
+                $query = $this->dbh->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
                 $query->bindParam(':hash', $_POST['login']);
                 $query->bindParam(':id', $data['user_id']);
                 $query->execute();
@@ -75,7 +81,7 @@ class Model_Login extends Model
             else
 
             {
-                $err = "Неправильный пароль";
+                $error = "Неправильный пароль";
 
             }
 

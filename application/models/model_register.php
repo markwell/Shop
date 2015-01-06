@@ -2,10 +2,15 @@
 
 class Model_Register extends Model
 {
+	protected $dbh;
+	public function __construct($dbh) {
+	$this->dbh = $dbh;
+	}
 	
 	public function get_data()
 	{	
-
+			// чтобы работало подключение к БД делаем так
+			
 		    $err = array();
 
 
@@ -31,7 +36,7 @@ class Model_Register extends Model
 
 		    # проверяем, не сущестует ли пользователя с таким именем
 
-		    $query = $DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
+		    $query = $this->dbh->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
 		    $query->bindParam("user_login", $_POST['login']);
 		    $result = $query->fetchAll();
 
@@ -70,7 +75,7 @@ class Model_Register extends Model
 
 		        
 
-		        $query = $DBH->prepare("INSERT INTO users SET user_login=:login, user_password=:password");
+		        $query = $this->DBH->prepare("INSERT INTO users SET user_login=:login, user_password=:password");
 		        $query->bindParam(":login", $login);
 		        $query->bindParam(":password", $password);
 		        $query->execute();

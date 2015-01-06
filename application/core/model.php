@@ -7,12 +7,14 @@ class Model
 		   # Соединямся с БД
 		try {  
           $DBH = new PDO("mysql:host=localhost;dbname=users", 'root', '');  
-          $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );  
-          // $DBH->prepare('SELECT user_login FROM users')->execute();  
+          $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); 
+          
         }  
         catch(PDOException $e) {  
-            file_put_contents('PDOErrors.txt', $e->getMessage(), FILE_APPEND);  
-            return $err = "Houston, we have a problem.";  
+        	$err[] = $e->getMessage;
+            file_put_contents('PDOErrors.txt', $e->getMessage(), FILE_APPEND);
+
+            // return $err = "Houston, we have a problem.";  
         }
 	}
 	
