@@ -36,7 +36,7 @@ class Model_Register extends Model
 
 		    # проверяем, не сущестует ли пользователя с таким именем
 
-		    $query = $this->dbh->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
+		    $query = $this->DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
 		    $query->bindParam("user_login", $_POST['login']);
 		    $result = $query->fetchAll();
 

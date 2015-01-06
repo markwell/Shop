@@ -4,7 +4,7 @@ class Controller_Login extends Controller
 
     function __construct()
     {
-        $this->model = new Model_Login($DBH);
+        $this->model = new Model_Login();
         $this->view = new View();
     }
     
