@@ -2,9 +2,9 @@
 
 class Model_Register extends Model
 {
-	protected $dbh;
-	public function __construct($dbh) {
-	$this->dbh = $dbh;
+	
+	public function __construct() {
+	$this->model->db_connect();
 	}
 	
 	public function get_data()

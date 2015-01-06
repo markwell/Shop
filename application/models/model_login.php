@@ -4,9 +4,9 @@
 class Model_Login extends Model
 {
 
-    protected $dbh;
-    public function __construct($dbh) {
-    $this->dbh = $dbh;
+    
+    public function __construct() {
+        $this->model->db_connect();
     }
 
     # Функция для генерации случайной строки
@@ -57,7 +57,7 @@ class Model_Login extends Model
                 # Записываем в БД новый хеш авторизации 
 
                 $query = $this->dbh->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
-                $query->bindParam(':hash', $_POST['login']);
+                $query->bindParam(':hash', $hash);
                 $query->bindParam(':id', $data['user_id']);
                 $query->execute();
 

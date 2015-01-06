@@ -20,9 +20,10 @@ if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 
 {   
 
-    $query = mysql_query("SELECT * FROM users WHERE user_id = '".intval($_COOKIE['id'])."' LIMIT 1");
-
-    $userdata = mysql_fetch_assoc($query);
+    $query = $DBH->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
+    $query->bindParam(':id', intval($_COOKIE['id']));
+    $query->execute();
+    $userdata = $query->fetchAll();
     
 
     if(($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id']))

@@ -4,7 +4,7 @@ class Controller_Register extends Controller
 
     function __construct()
     {
-        $this->model = new Model_Register($DBH);
+        $this->model = new Model_Register();
         $this->view = new View();
     }
     
@@ -19,7 +19,6 @@ class Controller_Register extends Controller
     {
     if(isset($_POST['submit'])) 
         {
-            $this->model->db_connect();
             $data = $this->model->get_data();
             $this->view->generate($data, 'template_view.php');
         }
