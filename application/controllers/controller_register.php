@@ -18,7 +18,7 @@ class Controller_Register extends Controller
     if(isset($_POST['submit'])) 
         {
             $error = $this->model->checkAndAddUser($_POST['login'],$_POST['password'],$_POST['repass']);
-            
+
             if (count($error) == 0) {
                 $this->view->generate("main_view.php", 'template_view.php');
             }

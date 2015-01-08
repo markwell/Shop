@@ -20,11 +20,11 @@
 		    </div>
 		  </div>
 		<? 
-		
+		if (isset($data)) { //по идее такого в виде не должно быть, но по другому не знаю как
 			foreach ($data['error'] as $value) {
-				print_r($value);
+				print($value);
 			}	
-		
+		}
 		?>
 		  <br>
 		  <br>
