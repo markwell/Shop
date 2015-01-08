@@ -10,11 +10,15 @@ class Controller_Login extends Controller
     {
         $this->view->generate('login_view.php', 'template_view.php');
     }
-    function action_auth()
+    function action_authUser()
     {
         if (isset($_POST['submit'])) {
-            $data = $this->model->get_data();
-            $this->view->generate($data, 'template_view.php');
+            $error = $this->model->checkAndAuthUser($_POST['login'], $_POST['password']);
+            if (!$error) {
+                $this->view->generate("main_view.php", 'template_view.php');
+            } else {
+                $this->view->generate('login_view.php', 'template_view.php', $error);
+            }
         }
     }
 }

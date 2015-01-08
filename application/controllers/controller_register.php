@@ -10,12 +10,12 @@ class Controller_Register extends Controller
     {
         $this->view->generate('register_view.php', 'template_view.php');
     }
-    function action_newuser()
+    function action_newUser()
     {
         if (isset($_POST['submit'])) {
             $error = $this->model->checkAndAddUser($_POST['login'], $_POST['password'], $_POST['repass']);
             if (count($error) == 0) {
-                $this->view->generate("main_view.php", 'template_view.php');
+                $this->view->generate("login_view.php", 'template_view.php');
             } else {
                 $this->view->generate('register_view.php', 'template_view.php', array(
                     'error' => $error

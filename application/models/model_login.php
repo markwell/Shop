@@ -3,7 +3,7 @@ class Model_Login extends Model
 {
     public function __construct()
     {
-        $this->model->db_connect();
+        $this->db_connect();
     }
     # Функция для генерации случайной строки
     public function generateCode($length = 6)
@@ -16,30 +16,34 @@ class Model_Login extends Model
         }
         return $code;
     }
-    public function get_data()
+    public function checkAndAuthUser($login, $password)
     {
         $error = "";
         # Вытаскиваем из БД запись, у которой логин равняеться введенному
-        $query = $this->dbh->prepare("SELECT user_id, user_password FROM users WHERE user_login=:login LIMIT 1");
-        $query->bindParam(':login', $_POST['login']);
+        $query = $this->DBH->prepare("SELECT user_id, user_password FROM users WHERE user_login=:login LIMIT 1");
+        $query->bindParam(':login', $login);
         $query->execute();
-        $data = $query->fetchAll();
+        $data = $query->fetch(PDO::FETCH_ASSOC);
         # Сравниваем пароли
-        if ($data['user_password'] === md5(md5($_POST['password']))) {
+        /*echo ($data['user_password'].'<br>');
+        echo md5(md5(md5($password)));
+        break;*/
+        if ($data['user_password'] === md5(md5(md5($password)))) {
             # Генерируем случайное число и шифруем его
-            $hash  = md5(generateCode(10));
+            $hash  = md5($this->generateCode(10));
             # Записываем в БД новый хеш авторизации 
-            $query = $this->dbh->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
+            $query = $this->DBH->prepare("UPDATE users SET user_hash=:hash WHERE user_id=:id");
             $query->bindParam(':hash', $hash);
             $query->bindParam(':id', $data['user_id']);
             $query->execute();
             # Ставим куки
             setcookie("id", $data['user_id'], time() + 60 * 60 * 24 * 30);
             setcookie("hash", $hash, time() + 60 * 60 * 24 * 30);
-            # Переадресовываем браузер на страницу проверки нашего скрипта
-            header("Location: main");
+            return null;
         } else {
-            $error = "Неправильный пароль";
+            
+            $error = "Неправильные имя пользователя или пароль. Пожалуйста, попробуйте еще раз.";
+            return $error;
         }
     }
 }

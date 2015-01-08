@@ -29,7 +29,7 @@ class Model_Register extends Model
         }
         # Если нет ошибок, то добавляем в БД нового пользователя
         if (count($err) == 0) {
-            $login    = $login;
+            $login = $login;
             # Убераем лишние пробелы и делаем двойное шифрование
             $password = md5(md5(trim($password)));
             $query    = $this->DBH->prepare("INSERT INTO users SET user_login=:login, user_password=:password");
