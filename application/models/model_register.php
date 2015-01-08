@@ -7,14 +7,14 @@ class Model_Register extends Model
 		$this->db_connect();
 	}
 	
-	public function checkAndAddUser()
+	public function checkAndAddUser($login, $password, $repass)
 	{	
 			// чтобы работало подключение к БД делаем так
 
 		$err = array();
 
 
-		if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['login']))
+		if(!preg_match("/^[a-zA-Z0-9]+$/",$login))
 
 		{
 
@@ -24,7 +24,7 @@ class Model_Register extends Model
 
 
 
-		if(strlen($_POST['login']) < 3 or strlen($_POST['login']) > 30)
+		if(strlen($login) < 3 or strlen($login) > 30)
 
 		{
 
@@ -37,17 +37,17 @@ class Model_Register extends Model
 		    # проверяем, не сущестует ли пользователя с таким именем
 
 		$query = $this->DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
-		$query->bindParam("user_login", $_POST['login']);
+		$query->bindParam("user_login", $login);
 		
-		if($query->fetchall() == nil) 
+		if($query->fetchall() == null) 
 		{
 
 			$err[] = "A user with this username already exists in the database";
 
 		}
 
-		$password = md5($_POST['password']);
-		$repeat = md5($_POST['repass']);
+		$password = md5($password);
+		$repeat = md5($repass);
 		if($password != $repeat)
 		{
 
@@ -63,13 +63,13 @@ class Model_Register extends Model
 		{
 
 
-			$login = $_POST['login'];
+			$login = $login;
 
 
 
 		        # Убераем лишние пробелы и делаем двойное шифрование
 
-			$password = md5(md5(trim($_POST['password'])));
+			$password = md5(md5(trim($password)));
 
 
 
