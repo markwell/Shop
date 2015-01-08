@@ -26,9 +26,8 @@ class Controller_Login extends Controller
         $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
         if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
             if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
-                setcookie("id", "", time() - 3600 * 24 * 30 * 12, "/");
-                setcookie("hash", "", time() - 3600 * 24 * 30 * 12, "/");
-                $message = "Что-то пошло не так. Попробуйте зайти еще раз.";
+                $this->action_logoutUser();
+                $message = "Авторизуйтесь пожалуйста.";
             } else {
                 $message = "Привет, ".$userdata['user_login'].". Все отлично!";
             }
@@ -37,4 +36,9 @@ class Controller_Login extends Controller
         }
         $this->view->generate('login_view.php', 'template_view.php', $message);
     }
+    function action_logoutUser()
+    {
+        setcookie("id", "", time() - 3600 * 24 * 30 * 12, "/");
+        setcookie("hash", "", time() - 3600 * 24 * 30 * 12, "/");
+    } 
 }

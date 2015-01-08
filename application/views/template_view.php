@@ -67,9 +67,10 @@
 			<div class="row">
 				<div class="panel-footer">
 					<ul class="list-inline">
+						<li><span class="divider"></span><a href="/shop/">Главная</a></li>
 						<li><span class="divider"></span><a href="/shop/register">Регистрация</a></li>
 						<li><span class="divider"></span><a href="/shop/login">Авторизация</a></li>
-						<li><span class="divider"></span><a href="#">Выход</a></li>
+						<li><span class="divider"></span><a href="/shop/login/logoutUser">Выход</a></li>
 					</ul>
 				</div>
 			</div>
