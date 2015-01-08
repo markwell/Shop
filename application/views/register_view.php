@@ -19,14 +19,19 @@
 		</form>
 		    </div>
 		  </div>
-		<? 
-		if (isset($data)) { //по идее такого в виде не должно быть, но по другому не знаю как
-			foreach ($data['error'] as $value) {
-				print($value);
-			}	
-		}
-		?>
+		  <div class="container">
+		  	<div class="row">
+				<? 
+				if (isset($data)) //по идее такого в виде не должно быть, но по другому не знаю как
+				{ 
+					foreach ($data['error'] as $value) 
+					{
+						echo('<br><h4>'.$value.'</h4>');
+					}	
+				}
+				?>
+		   </div>
+		    </div>
 		  <br>
 		  <br>
-		  <br>
-		  <br>
+		  
