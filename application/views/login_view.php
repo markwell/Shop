@@ -17,10 +17,12 @@
 		  </div>
 		    <div class="container">
 		    	<div class="row">
-		  		<? 
-		  				echo('<br><h4>'.$data.'</h4>');
-		  		?>
-		      </div>
+				  		<? 
+				  				if (isset($data)){
+				  					echo('<br><div class="alert alert-info" role="alert">'.$data.'</div>');
+				  				}
+				  		?>
+		      	</div>
 		     </div>
 		  <br>
 		  <br>

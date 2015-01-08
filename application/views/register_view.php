@@ -21,15 +21,15 @@
 		  </div>
 		  <div class="container">
 		  	<div class="row">
-				<? 
-				if (isset($data)) //по идее такого в виде не должно быть, но иначе будет ошибка на странице
-				{ 
-					foreach ($data['error'] as $value) 
-					{
-						echo('<br><h4>'.$value.'</h4>');
-					}	
-				}
-				?>
+					<? 
+					if (isset($data)) //по идее такого в виде не должно быть, но иначе будет ошибка на странице
+					{ 
+						foreach ($data['error'] as $value) 
+						{
+							echo('<br><div class="alert alert-warning" role="alert">'.$value.'</div>');
+						}	
+					}
+					?>
 		    </div>
 		   </div>
 		  <br>

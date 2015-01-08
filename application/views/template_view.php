@@ -37,13 +37,13 @@
 			   <ul class="nav navbar-nav">
 				  <li><a href="#">Пункт1</a></li>
 				  <li class="dropdown">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Пункт2<b class="caret"></b></a>
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
-						<li><a href="#">Пункт1</a></li> 
-						<li><a href="#">Пункт2</a></li>
-						<li><a href="#">Пункт3</a></li>
+						<li><a href="#">Китайская кухня</a></li> 
 						<li class="divider"></li>
-						<li><a href="#">Пункт4</a></li>
+						<li><a href="#">Итальянская кухня</a></li>
+						<li><a href="#">Русская кухня</a></li>
+						<li><a href="#">Узбекская кухня</a></li>
 					 </ul>
 				  </li>
 				  <li><a href="#">Пункт3</a></li>
