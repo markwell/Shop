@@ -5,9 +5,10 @@ class Model
 	public function db_connect()
 	{
 		   # Соединямся с БД
+		
 		try {  
-          $DBH = new PDO("mysql:host=localhost;dbname=users", 'root', '');  
-          $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); 
+          $this->DBH = new PDO("mysql:host=localhost;dbname=users", 'root', '');  
+          $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); 
           
         }  
         catch(PDOException $e) {  

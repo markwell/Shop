@@ -19,8 +19,15 @@ class Controller_Register extends Controller
     {
     if(isset($_POST['submit'])) 
         {
-            $data = $this->model->get_data();
-            $this->view->generate($data, 'template_view.php');
+
+            $error = $this->model->checkAndAddUser();
+            if (count($error) == 0) {
+                $this->view->generate("main_view.php", 'template_view.php');
+
+            }
+            else{
+                $this->view->generate('register_view.php', 'template_view.php', array('error' => $error));
+            }
         }
     }
 }

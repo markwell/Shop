@@ -2,7 +2,7 @@
 	<div class="container">	
 		<h2>Регистрация</h2><br>
 		 <div class="row">
-		<form role="form" method="POST" action="register/newuser">
+		<form role="form" method="POST" action="/shop/register/newuser">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Логин</label>
 		    <input type="email" class="form-control" id="exampleInputEmail1" name="login" placeholder="Enter login" required>
@@ -19,7 +19,10 @@
 		</form>
 		    </div>
 		  </div>
-
+		<? foreach ($data['error'] as $key => $value) {
+			print_r($value);
+		}	
+		?>
 		  <br>
 		  <br>
 		  <br>

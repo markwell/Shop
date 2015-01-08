@@ -6,8 +6,8 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <title>Онлайн Магазин</title>
 	  <!-- Bootstrap -->
-	  <link href="css/bootstrap.css" rel="stylesheet">
-	  <link href="css/style.css" rel="stylesheet">
+	  <link href="/shop/css/bootstrap.css" rel="stylesheet">
+	  <link href="/shop/css/style.css" rel="stylesheet">
 	  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	  <!--[if lt IE 9]>
@@ -67,8 +67,8 @@
 			<div class="row">
 				<div class="panel-footer">
 					<ul class="list-inline">
-						<li><span class="divider"></span><a href="register">Регистрация</a></li>
-						<li><span class="divider"></span><a href="login">Авторизация</a></li>
+						<li><span class="divider"></span><a href="/shop/register">Регистрация</a></li>
+						<li><span class="divider"></span><a href="/shop/login">Авторизация</a></li>
 						<li><span class="divider"></span><a href="#">Выход</a></li>
 					</ul>
 				</div>
@@ -76,7 +76,7 @@
 	    </div>	  	  
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/jquery.min.js"></script>
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.js"></script>
 	 

@@ -11,21 +11,21 @@
 	  	<!-- Слайды -->
 	  	<div class="carousel-inner">
 	  		<div class="item active">
-	  			<img src="images/1.jpg" alt="">
+	  			<img src="/images/1.jpg" alt="">
 	  			<div class="carousel-caption">
 	  				<h3>Первый слайд</h3>
 	  				<p>Описание первого слайда</p>
 	  			</div>
 	  		</div>
 	  		<div class="item">
-	  			<img src="images/2.jpg" alt="">
+	  			<img src="/images/2.jpg" alt="">
 	  			<div class="carousel-caption">
 	  				<h3>Второй слайд</h3>
 	  				<p>Описание второго слайда</p>
 	  			</div>
 	  		</div>
 	  		<div class="item">
-	  			<img src="images/3.jpg" alt="">
+	  			<img src="/images/3.jpg" alt="">
 	  			<div class="carousel-caption">
 	  				<h3>Третий слайд слайд</h3>
 	  				<p>Описание третьего слайда</p>
