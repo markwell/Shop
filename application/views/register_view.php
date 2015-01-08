@@ -19,9 +19,12 @@
 		</form>
 		    </div>
 		  </div>
-		<? foreach ($data['error'] as $key => $value) {
-			print_r($value);
-		}	
+		<? 
+		
+			foreach ($data['error'] as $value) {
+				print_r($value);
+			}	
+		
 		?>
 		  <br>
 		  <br>
