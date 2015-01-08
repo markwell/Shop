@@ -9,10 +9,10 @@ class Model_Register extends Model
     {
         $err = array();
         if (!preg_match("/^[a-zA-Z0-9]+$/", $login)) {
-            $err[] = "Username can only consist of letters of the alphabet and numbers";
+            $err[] = "Имя пользователя должно содержать только буквы и числа!";
         }
         if (strlen($login) < 3 or strlen($login) > 30) {
-            $err[] = "Username must be at least 3 characters and no more than 30";
+            $err[] = "Имя пользователся должно быть не меньше трех и не больше тридцати символов!";
         }
         # проверяем, не сущестует ли пользователя с таким именем
         $query = $this->DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:login");
@@ -20,12 +20,12 @@ class Model_Register extends Model
         $query->execute();
         $resultArray = $query->fetchcolumn();
         if ($resultArray > 0) {
-            $err[] = "A user with this username already exists in the database";
+            $err[] = "Пользователь с таким именем уже существует!";
         }
         $password = md5($password);
         $repeat   = md5($repass);
         if ($password != $repeat) {
-            $err[] = "Passwords do not match! Please try again!";
+            $err[] = "Пароли не совпадают! Попробуйте еще раз!";
         }
         # Если нет ошибок, то добавляем в БД нового пользователя
         if (count($err) == 0) {

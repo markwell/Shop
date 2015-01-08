@@ -1,7 +1,7 @@
 <?
 class Controller_check extends Controller
 {
-    function checkUser()
+    function action_checkUser()
     {
         if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
             if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {

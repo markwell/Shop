@@ -46,5 +46,13 @@ class Model_Login extends Model
             return $error;
         }
     }
+    public function getHashAndID($userID)
+    {
+        $query = $this->DBH->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
+        $query->bindParam(':id', $userID);
+        $query->execute();
+        $userdata = $query->fetch(PDO::FETCH_ASSOC);
+        return $userdata;
+    }
 }
 ?>

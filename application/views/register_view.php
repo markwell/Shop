@@ -22,7 +22,7 @@
 		  <div class="container">
 		  	<div class="row">
 				<? 
-				if (isset($data)) //по идее такого в виде не должно быть, но по другому не знаю как
+				if (isset($data)) //по идее такого в виде не должно быть, но иначе будет ошибка на странице
 				{ 
 					foreach ($data['error'] as $value) 
 					{
@@ -30,8 +30,8 @@
 					}	
 				}
 				?>
-		   </div>
 		    </div>
+		   </div>
 		  <br>
 		  <br>
 		  

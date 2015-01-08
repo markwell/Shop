@@ -5,12 +5,13 @@ class Model_Check extends Model
     {
         $this->model->db_connect();
     }
-    function get_data()
+    function getHashAndID($userID)
     {
         $query = $DBH->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
-        $query->bindParam(':id', intval($_COOKIE['id']));
+        $query->bindParam(':id', $userID));
         $query->execute();
-        $userdata = $query->fetchAll();
+        $userdata = $query->fetch(PDO::FETCH_ASSOC);
+        return $userdata;
     }
 }
 ?>
