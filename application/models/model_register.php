@@ -9,7 +9,6 @@ class Model_Register extends Model
 	
 	public function checkAndAddUser($login, $password, $repass)
 	{	
-			// чтобы работало подключение к БД делаем так
 
 		$err = array();
 
@@ -36,12 +35,12 @@ class Model_Register extends Model
 
 		    # проверяем, не сущестует ли пользователя с таким именем
 
-		$query = $this->DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:user_login");
-		$query->bindParam("user_login", $login);
-		
-		if($query->fetchall() == null) 
-		{
+		$query = $this->DBH->prepare("SELECT COUNT(user_id) FROM users WHERE user_login=:login");
+		$query->bindParam(":login", $login);
+		$resultArray = $query->fetchcolumn();
 
+		if($resultArray[0] > 0) 
+		{
 			$err[] = "A user with this username already exists in the database";
 
 		}
@@ -82,7 +81,8 @@ class Model_Register extends Model
 
 		}
 
-
+		print_r ($err);
+		break;
 		return $err;
 	}
 
