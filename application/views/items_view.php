@@ -1,18 +1,23 @@
-<div class="container">
-	<div class="row">
-		<div class="media">
-		  <a class="media-left media-middle" href="#">
-		    <img data-src="/shop/images/1.jpg" alt="...">
-		  </a>
-		  <div class="media-body">
-		    <h4 class="media-heading">Middle aligned media</h4>
-		    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+<?php
+    foreach($data as $row)
+    {
+		echo 
+		'<div class="container text-center">
+			<div class="row">
+				<div class="media">
+					<a class="media-left media-middle" href="#"><img src="'.$row['image'].'" alt="Блюдо"></a>
+					<div class="media-body">
+						<h4 class="media-heading">
+							'.$row['name'].'
+						</h4>
+						'.$row['description'].'
+					</div>
+				</div>
+			</div>
+		</div>';
+    }
+?>
 
-		    Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-		  </div>
-		</div>
-	</div>
-</div>
 <div class="container text-center">
 	<div class="row">
 		<nav>

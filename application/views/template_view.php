@@ -31,11 +31,11 @@
 			   <span class="icon-bar"></span>
 			   <span class="icon-bar"></span>
 			   </button>
-			   <a href="#" class="navbar-brand">Логотип</a>
+			   <a href="#" class="navbar-brand"><img src="/shop/images/logo.jpg"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="responsive-menu">
 			   <ul class="nav navbar-nav">
-				  <li><a href="#">Пункт1</a></li>
+				  <li><a href="#">Главная</a></li>
 				  <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
@@ -46,7 +46,7 @@
 						<li><a href="#">Узбекская кухня</a></li>
 					 </ul>
 				  </li>
-				  <li><a href="#">Пункт3</a></li>
+				  <li><a href="/shop/admin/getallitems">Товары</a></li>
 			   </ul>
 			</div>
 		 </div>
