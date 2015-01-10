@@ -5,13 +5,11 @@ class Model_Admin extends Model
     {
         $this->db_connect();
     }
-    public function getAll()
+    public function getItems()
     {
         $query = $this->DBH->prepare("SELECT * FROM item");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        // print_r($result);
-        // break;
         return $result;
     }
 }

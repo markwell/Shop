@@ -1,5 +1,5 @@
 <?php
-    foreach($data as $row)
+    foreach($data['items'] as $row)
     {
 		echo 
 		'<div class="container text-center">

@@ -46,7 +46,7 @@
 						<li><a href="#">Узбекская кухня</a></li>
 					 </ul>
 				  </li>
-				  <li><a href="/shop/admin/getallitems">Товары</a></li>
+				  <li><a href="/shop/admin/getItemsAndShow">Товары</a></li>
 			   </ul>
 			</div>
 		 </div>
