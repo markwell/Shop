@@ -41,7 +41,7 @@ class Route
 		else
 		{
 			
-			header('Location:/phpportal/404');
+			header('Location:/shop/404');
 		}
 		
 		$controller = new $controller_name;
@@ -53,7 +53,7 @@ class Route
 		}
 		else
 		{
-			header('Location:/phpportal/404');
+			header('Location:/shop/404');
 		}
 	
 	}
