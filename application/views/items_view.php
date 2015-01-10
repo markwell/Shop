@@ -1,20 +1,19 @@
-<?php
-		//тут выводим сам объект в соответствии с номером текущего элемента в пагинации
-		echo 
+
+		<!-- тут выводим сам объект в соответствии с номером текущего элемента в пагинации -->
 		'<div class="container text-center">
 			<div class="row">
 				<div class="media">
-					<a class="media-left media-middle" href="#"><img src="'.$data['items']['active']['image'].'" alt="Блюдо"></a>
+					<a class="media-left media-middle" href="#"><img src="<?=$data['items'][$data['pagination']['active']]['image']?>" alt="Блюдо"></a>
 					<div class="media-body">
 						<h4 class="media-heading">
-							'.$data['items']['active']['name'].'
+							<?php $data['items'][$data['pagination']['active']]['name'] ?>
 						</h4>
-						'.$data['items']['active']['description'].'
+						<?php $data['items'][$data['pagination']['active']]['description'] ?>
 					</div>
 				</div>
 			</div>
 		</div>';
-?>
+
 		<!-- Тут выводим саму пагинацию -->
 <?php if ($active != 1) { ?>
 		<div class="container text-center">
