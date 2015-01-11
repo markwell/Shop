@@ -15,7 +15,7 @@
 		</div>';
 
 		<!-- Тут выводим саму пагинацию -->
-<?php if ($active != 1) { ?>
+<?php if ($data['pagination']['active'] != 1) { ?>
 		<div class="container text-center">
 			<div class="row">
 				<nav>
@@ -50,5 +50,5 @@
 				</nav>
 			</div>
 		</div>
-<?php } ?>
+<?php  ?>
 

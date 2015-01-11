@@ -14,7 +14,7 @@ class Controller_Admin extends Controller
     {
         // Функция расчитывает первый и последний элемент пагинации относительно текущего. Текущий элемент должен быть примерно по середине
         function StartAndEndPagination($count_pages, $active = 1, $count_show_pages = 5)
-        {
+        {   
             if ($count_pages > 1) 
             { 
               $left = $active - 1;
@@ -33,11 +33,12 @@ class Controller_Admin extends Controller
         $url = "/shop/admin/getitemsandshow?page=1"; //адрес первой страницы
         $url_page = "/shop/admin/getitemsandshow?page="; //адрес страницы с параметром page без значения на конце. 
         $active = $_GET['page']; //параметр активной страницы мы передаем функции с помощью глобального массива GET
-    	$items = $this->model->getItems(); //вытаскиваем все строки из бд
-        $countItems = count($items); //подсчитываем кол-во этих строк
-        $StartAndEndPagination = $this -> StartAndEndPagination($countItems, $active); //вычисляем первый и последний элемент пагинации
+    	  $items = $this->model->getItems(); //вытаскиваем все строки из бд
+        $count_pages = count($items); //подсчитываем кол-во этих строк
+        $StartAndEndPagination = StartAndEndPagination($count_pages, $active); //вычисляем первый и последний элемент пагинации
         $paginationData = array('count_pages' => $count_pages, 'active' => $active, 'url' => $url); //создаем массив для View
-        $paginationData += $StartAndEndPagination; //добавляем к предыдущему массиву массив со значениеми первого и последнего элемента пагинации
+        array_push($paginationData, $StartAndEndPagination); //добавляем к предыдущему массиву массив со значениеми первого и последнего элемента пагинации
+        
         $this->view->generate('items_view.php', 'template_view.php', array('items' => $items,'pagination' => $paginationData));//передаем View
     }
 }
