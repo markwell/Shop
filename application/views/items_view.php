@@ -3,12 +3,12 @@
 		'<div class="container text-center">
 			<div class="row">
 				<div class="media">
-					<a class="media-left media-middle" href="#"><img src="<?=$data['items'][$data['pagination']['active']]['image']?>" alt="Блюдо"></a>
+					<a class="media-left media-middle" href="#"><img src="<?=$data['items'][$data['pagination']['active']-1]['image']?>" alt="Блюдо"></a>
 					<div class="media-body">
 						<h4 class="media-heading">
-							<?=$data['items'][$data['pagination']['active']]['name']?>
+							<?=$data['items'][$data['pagination']['active']-1]['name']?>
 						</h4>
-						<?=$data['items'][$data['pagination']['active']]['description']?>
+						<?=$data['items'][$data['pagination']['active']-1]['description']?>
 					</div>
 				</div>
 			</div>
