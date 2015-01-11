@@ -6,9 +6,9 @@
 					<a class="media-left media-middle" href="#"><img src="<?=$data['items'][$data['pagination']['active']]['image']?>" alt="Блюдо"></a>
 					<div class="media-body">
 						<h4 class="media-heading">
-							<?php $data['items'][$data['pagination']['active']]['name'] ?>
+							<?=$data['items'][$data['pagination']['active']]['name']?>
 						</h4>
-						<?php $data['items'][$data['pagination']['active']]['description'] ?>
+						<?=$data['items'][$data['pagination']['active']]['description']?>
 					</div>
 				</div>
 			</div>
