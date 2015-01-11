@@ -12,10 +12,9 @@
 					</div>
 				</div>
 			</div>
-		</div>';
+		</div>
 
 		<!-- Тут выводим саму пагинацию -->
-<?php if ($data['pagination']['active'] != 1) { ?>
 		<div class="container text-center">
 			<div class="row">
 				<nav>
@@ -30,18 +29,20 @@
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
-				     <?php } ?>
+				    <li>
+
 				     <?php for ($i = $data['pagination']['start']; $i <= $data['pagination']['end']; $i++) { ?>
-				    <?php if ($i == $data['pagination']['active']) { ?><span><?=$i?></span><?php } else { ?><li><a href="<?php if ($i == 1) { ?><?=$data['pagination']['url']?><?php } else { ?><?=$data['pagination']['url_page'].$i?><?php } ?>"><?=$i?></a></li><?php } ?>
+				    <?php if ($i == $data['pagination']['active']) { ?><li><span><?=$i?></span></li><?php } else { ?><li><a href="<?php if ($i == 1) { ?><?=$data['pagination']['url']?><?php } else { ?><?=$data['pagination']['url_page'].$i?><?php } ?>"><?=$i?></a></li><?php } ?>
 				    <?php } ?>
 				    <?php if ($data['pagination']['active'] != $data['pagination']['count_pages']) { ?>
+				</li>
 				    <li>
 				      <a href="<?=$data['pagination']['url_page'].($data['pagination']['active'] + 1)?>" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li>
 				    <li>
-				      <a href="<?=$$data['pagination']['url_page'].$data['pagination']['count_pages']?>" aria-label="Next">
+				      <a href="<?=$data['pagination']['url_page'].$data['pagination']['count_pages']?>" aria-label="Next">
 				        <span aria-hidden="true">&raquo; &raquo; &raquo;</span>
 				      </a>
 				    </li>
