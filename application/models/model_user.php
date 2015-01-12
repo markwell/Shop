@@ -54,9 +54,12 @@ class Model_Login extends Model
         $userdata = $query->fetch(PDO::FETCH_ASSOC);
         return $userdata;
     }
-    public function addItemToOrder($user_id)
+    public function addItemToOrder($user_id, $item_id)
     {
-
+        $query = $this->DBH->prepare("INSERT INTO orders SET user_id=:user_id, item_id=:item_id");
+        $query->bindParam(':user_id', $user_id);
+        $query->bindParam(':item_id', $item_id);
+        $query->execute();
     }
     public function getItems()
     {

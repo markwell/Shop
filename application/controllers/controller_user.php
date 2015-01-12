@@ -47,7 +47,7 @@ class Controller_User extends Controller
         $count_show_pages = 5; //число видимых элементов пагинации
         $url = "/shop/user/getitemsandshow?page=1"; //адрес первой страницы
         $url_page = "/shop/user/getitemsandshow?page="; //адрес страницы с параметром page без значения на конце. 
-        $active = $_GET['page']; //параметр активной страницы мы передаем функции с помощью глобального массива GET
+        @$active = $_GET['page']; //параметр активной страницы мы передаем функции с помощью глобального массива GET
         @$category = $_GET['category'];
         if (empty($active)) //если нет параметра page то ставим значение активное элемента = 1
         {
@@ -75,6 +75,28 @@ class Controller_User extends Controller
             }
         }
         $paginationData = array('count_pages' => $count_pages, 'active' => $active, 'url' => $url, 'url_page' => $url_page, 'start' => $start, 'end' => $end, 'category' => $category); //создаем массив для View
+        setcookie("item_id", $items[$paginationData['active']-1]['id'], time() + 60 * 60 * 24 * 30); //добавляем в куки ID товара(для добавления товара в корзину)
         $this->view->generate('items_view.php', 'template_view.php', array('items' => $items,'pagination' => $paginationData));//передаем View
+    }
+    function action_addItemToOrder()
+    {
+        if (isset($_POST['submit'])) {
+        $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+        if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+            if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("hash", "", time() - 3600*24*30*12, "/");
+                $message = "Авторизуйтесь пожалуйста.";
+                $this->view->generate('login_view.php', 'template_view.php', $message);
+            } else {
+                        $this->model->addItemToOrder($_COOKIE['id'],$_COOKIE['item_id']);
+                        echo "Добавлено!";
+                    }
+            } else {
+                        $message = "Пожалуйста, включите куки.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    }
+        
+        }
     }
 }

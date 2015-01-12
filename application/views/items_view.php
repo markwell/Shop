@@ -11,6 +11,9 @@
 						<?=$data['items'][$data['pagination']['active']-1]['description']?>
 					</div>
 					<span>Цена:</span> <div><?=$data['items'][$data['pagination']['active']-1]['price']?></div>
+					<form role="form" method="POST" action="/shop/user/addItemToOrder">
+						<input name="submit" type="submit" class="btn btn-default" value="В корзину">
+					</form>
 				</div>
 			</div>
 		</div>
