@@ -39,14 +39,14 @@
 				  <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
-						<li><a href="/shop/admin/getitemsandshow?category=1">Китайская кухня</a></li> 
+						<li><a href="/shop/user/getitemsandshow?category=2">Китайская кухня</a></li> 
 						<li class="divider"></li>
-						<li><a href="#">Итальянская кухня</a></li>
-						<li><a href="#">Русская кухня</a></li>
-						<li><a href="#">Узбекская кухня</a></li>
+						<li><a href="/shop/user/getitemsandshow?category=1">Итальянская кухня</a></li>
+						<li><a href="/shop/user/getitemsandshow?category=4">Русская кухня</a></li>
+						<li><a href="/shop/user/getitemsandshow?category=3">Узбекская кухня</a></li>
 					 </ul>
 				  </li>
-				  <li><a href="/shop/admin/getitemsandshow">Товары</a></li>
+				  <li><a href="/shop/user/getitemsandshow">Товары</a></li>
 			   </ul>
 			</div>
 		 </div>
@@ -69,8 +69,8 @@
 					<ul class="list-inline">
 						<li><span class="divider"></span><a href="/shop/">Главная</a></li>
 						<li><span class="divider"></span><a href="/shop/register">Регистрация</a></li>
-						<li><span class="divider"></span><a href="/shop/login">Авторизация</a></li>
-						<li><span class="divider"></span><a href="/shop/login/logoutUser">Выход</a></li>
+						<li><span class="divider"></span><a href="/shop/user">Авторизация</a></li>
+						<li><span class="divider"></span><a href="/shop/user/logoutUser">Выход</a></li>
 					</ul>
 				</div>
 			</div>

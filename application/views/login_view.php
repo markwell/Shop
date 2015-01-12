@@ -1,7 +1,7 @@
 <div class="container">	
 		<h2>Авторизация</h2><br>
 		 <div class="row">
-		<form role="form" method="POST" action="/shop/login/authUser">
+		<form role="form" method="POST" action="/shop/user/authUser">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Логин</label>
 		    <input type="email" class="form-control" id="exampleInputEmail1" name="login" placeholder="Enter login" required>
