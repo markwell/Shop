@@ -7,13 +7,15 @@ class Route
 		$controller_name = 'Main';
 		$action_name = 'index';
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
-		$routes[3] = substr($routes[3], 0, strrpos($routes[3], '?')); //обрезаем все что после вопроса включительно
 		if ( !empty($routes[2]) )
 		{	
 			$controller_name = $routes[2];
 		}
 		if ( !empty($routes[3]) )
-		{
+		{	
+			if (strstr($routes[3],'?') != false) {
+			 	$routes[3] = strstr($routes[3],'?',true);
+			 } 
 			$action_name = $routes[3];
 		}
 		$model_name = 'Model_'.$controller_name;

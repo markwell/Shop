@@ -13,6 +13,7 @@ class Controller_Admin extends Controller
     function action_getItemsAndShow()
     {
         $count_show_pages = 5; //число видимых элементов пагинации
+        
         $url = "/shop/admin/getitemsandshow?page=1"; //адрес первой страницы
         $url_page = "/shop/admin/getitemsandshow?page="; //адрес страницы с параметром page без значения на конце. 
         $active = $_GET['page']; //параметр активной страницы мы передаем функции с помощью глобального массива GET

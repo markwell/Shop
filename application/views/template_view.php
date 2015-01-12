@@ -35,7 +35,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="responsive-menu">
 			   <ul class="nav navbar-nav">
-				  <li><a href="#">Главная</a></li>
+				  <li><a href="/shop/">Главная</a></li>
 				  <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
@@ -46,7 +46,7 @@
 						<li><a href="#">Узбекская кухня</a></li>
 					 </ul>
 				  </li>
-				  <li><a href="/shop/admin/getItemsAndShow">Товары</a></li>
+				  <li><a href="/shop/admin/getitemsandshow?page=1">Товары</a></li>
 			   </ul>
 			</div>
 		 </div>

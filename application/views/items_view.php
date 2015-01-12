@@ -10,6 +10,7 @@
 						</h4>
 						<?=$data['items'][$data['pagination']['active']-1]['description']?>
 					</div>
+					<span>Цена:</span> <div><?=$data['items'][$data['pagination']['active']-1]['price']?></div>
 				</div>
 			</div>
 		</div>
@@ -19,6 +20,7 @@
 			<div class="row">
 				<nav>
 				  <ul class="pagination">
+				    <?php if ($data['pagination']['active'] != 1) { ?>
 				    <li>
 				      <a href="<?=$data['pagination']['url']?>" aria-label="Previous">
 				        <span aria-hidden="true">&laquo; &laquo; &laquo;</span>
@@ -29,6 +31,7 @@
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
+				    <?php } ?>
 				    <li>
 
 				     <?php for ($i = $data['pagination']['start']; $i <= $data['pagination']['end']; $i++) { ?>
