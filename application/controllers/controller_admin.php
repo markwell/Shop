@@ -17,6 +17,10 @@ class Controller_Admin extends Controller
         $url = "/shop/admin/getitemsandshow?page=1"; //адрес первой страницы
         $url_page = "/shop/admin/getitemsandshow?page="; //адрес страницы с параметром page без значения на конце. 
         $active = $_GET['page']; //параметр активной страницы мы передаем функции с помощью глобального массива GET
+        if (empty($active))
+        {
+          $active = 1;
+        }
     	  $items = $this->model->getItems(); //вытаскиваем все строки из бд
         $count_pages = count($items); //подсчитываем кол-во этих строк
         if ($count_pages > 1) 
