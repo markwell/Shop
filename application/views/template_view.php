@@ -39,7 +39,7 @@
 				  <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
-						<li><a href="#">Китайская кухня</a></li> 
+						<li><a href="/shop/admin/getitemsandshow?category=1">Китайская кухня</a></li> 
 						<li class="divider"></li>
 						<li><a href="#">Итальянская кухня</a></li>
 						<li><a href="#">Русская кухня</a></li>

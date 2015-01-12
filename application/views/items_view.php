@@ -22,12 +22,12 @@
 				  <ul class="pagination">
 				    <?php if ($data['pagination']['active'] != 1) { ?>
 				    <li>
-				      <a href="<?=$data['pagination']['url']?>" aria-label="Previous">
+				      <a href="<?=$data['pagination']['url'].'&category='.$data['pagination']['category']?>" aria-label="Previous">
 				        <span aria-hidden="true">&laquo; &laquo; &laquo;</span>
 				      </a>
 				    </li>
 				    <li>
-				      <a href="<?php if ($data['pagination']['active'] == 2) { ?><?=$data['pagination']['url']?><?php } else { ?><?=$data['pagination']['url_page'].($data['pagination']['active'] - 1)?><?php } ?>" aria-label="Previous">
+				      <a href="<?php if ($data['pagination']['active'] == 2) { ?><?=$data['pagination']['url'].'&category='.$data['pagination']['category']?><?php } else { ?><?=$data['pagination']['url_page'].($data['pagination']['active'] - 1).'&category='.$data['pagination']['category']?><?php } ?>" aria-label="Previous">
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
@@ -35,17 +35,17 @@
 				    <li>
 
 				     <?php for ($i = $data['pagination']['start']; $i <= $data['pagination']['end']; $i++) { ?>
-				    <?php if ($i == $data['pagination']['active']) { ?><li><span><?=$i?></span></li><?php } else { ?><li><a href="<?php if ($i == 1) { ?><?=$data['pagination']['url']?><?php } else { ?><?=$data['pagination']['url_page'].$i?><?php } ?>"><?=$i?></a></li><?php } ?>
+				    <?php if ($i == $data['pagination']['active']) { ?><li><span><?=$i?></span></li><?php } else { ?><li><a href="<?php if ($i == 1) { ?><?=$data['pagination']['url'].'&category='.$data['pagination']['category']?><?php } else { ?><?=$data['pagination']['url_page'].$i.'&category='.$data['pagination']['category']?><?php } ?>"><?=$i?></a></li><?php } ?>
 				    <?php } ?>
 				    <?php if ($data['pagination']['active'] != $data['pagination']['count_pages']) { ?>
 				</li>
 				    <li>
-				      <a href="<?=$data['pagination']['url_page'].($data['pagination']['active'] + 1)?>" aria-label="Next">
+				      <a href="<?=$data['pagination']['url_page'].($data['pagination']['active'] + 1).'&category='.$data['pagination']['category']?>" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li>
 				    <li>
-				      <a href="<?=$data['pagination']['url_page'].$data['pagination']['count_pages']?>" aria-label="Next">
+				      <a href="<?=$data['pagination']['url_page'].$data['pagination']['count_pages'].'&category='.$data['pagination']['category']?>" aria-label="Next">
 				        <span aria-hidden="true">&raquo; &raquo; &raquo;</span>
 				      </a>
 				    </li>
