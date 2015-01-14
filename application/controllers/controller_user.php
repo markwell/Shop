@@ -99,4 +99,43 @@ class Controller_User extends Controller
         
         }
     }
-}
+    function action_getOrderItemsAndShow()
+    {
+        $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+        if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+            if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("hash", "", time() - 3600*24*30*12, "/");
+                $message = "Авторизуйтесь пожалуйста.";
+                $this->view->generate('login_view.php', 'template_view.php', $message);
+            } else {
+                        $items = $this->model->getOrderItems($_COOKIE['id']);
+                        $this->view->generate('orders_view.php', 'template_view.php', $items);
+                    }
+            } else {
+                        $message = "Пожалуйста, включите куки.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    }
+        
+        }
+    function action_deleteItemFromOrder()
+    {
+        if (isset($_POST['submit'])) {
+                $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+                if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+                    if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                        setcookie("id", "", time() - 3600*24*30*12, "/");
+                        setcookie("hash", "", time() - 3600*24*30*12, "/");
+                        $message = "Авторизуйтесь пожалуйста.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    } else {
+                                $this->model->deleteItemFromOrder($_COOKIE['id'], $_POST['deleteItem']);
+                                echo "Удалено!";
+                            }
+                    } else {
+                                $message = "Пожалуйста, включите куки.";
+                                $this->view->generate('login_view.php', 'template_view.php', $message);
+                            }
+                
+                }
+    }   }

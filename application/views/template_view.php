@@ -47,6 +47,7 @@
 					 </ul>
 				  </li>
 				  <li><a href="/shop/user/getitemsandshow">Товары</a></li>
+				  <li><a href="/shop/user/getOrderItemsAndShow">Корзина</a></li>
 			   </ul>
 			</div>
 		 </div>

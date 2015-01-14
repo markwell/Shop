@@ -61,12 +61,27 @@ class Model_Login extends Model
         $query->bindParam(':item_id', $item_id);
         $query->execute();
     }
+    public function deleteItemFromOrder($user_id, $item_id)
+    {
+        $query = $this->DBH->prepare("DELETE FROM orders WHERE user_id=:user_id, item_id=:item_id");
+        $query->bindParam(':user_id', $user_id);
+        $query->bindParam(':item_id', $item_id);
+        $query->execute();
+    }
     public function getItems()
     {
         $query = $this->DBH->prepare("SELECT * FROM item");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+     public function getOrderItems($user_id)
+    {
+        $query = $this->DBH->prepare("SELECT * FROM item WHERE id IN (SELECT item_id FROM orders WHERE user_id =:user_id )");
+        $query->bindParam(':user_id', $user_id);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        
     }
     public function getCategoryItems($category)
     {
