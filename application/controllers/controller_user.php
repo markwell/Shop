@@ -27,6 +27,7 @@ class Controller_User extends Controller
         if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
             if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
                 setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("username", "", time() - 3600*24*30*12, "/");
                 setcookie("hash", "", time() - 3600*24*30*12, "/");
                 $message = "Авторизуйтесь пожалуйста.";
             } else {
@@ -85,6 +86,7 @@ class Controller_User extends Controller
         if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
             if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
                 setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("username", "", time() - 3600*24*30*12, "/");
                 setcookie("hash", "", time() - 3600*24*30*12, "/");
                 $message = "Авторизуйтесь пожалуйста.";
                 $this->view->generate('login_view.php', 'template_view.php', $message);
@@ -105,6 +107,7 @@ class Controller_User extends Controller
         if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
             if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
                 setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("username", "", time() - 3600*24*30*12, "/");
                 setcookie("hash", "", time() - 3600*24*30*12, "/");
                 $message = "Авторизуйтесь пожалуйста.";
                 $this->view->generate('login_view.php', 'template_view.php', $message);
@@ -125,6 +128,7 @@ class Controller_User extends Controller
                 if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
                     if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
                         setcookie("id", "", time() - 3600*24*30*12, "/");
+                        setcookie("username", "", time() - 3600*24*30*12, "/");
                         setcookie("hash", "", time() - 3600*24*30*12, "/");
                         $message = "Авторизуйтесь пожалуйста.";
                         $this->view->generate('login_view.php', 'template_view.php', $message);

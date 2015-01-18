@@ -48,6 +48,7 @@
 				  </li>
 				  <li><a href="/shop/user/getitemsandshow">Товары</a></li>
 				  <li><a href="/shop/user/getOrderItemsAndShow">Корзина</a></li>
+				  <li><a href=""><?php if (isset($_COOKIE['username'])){echo $_COOKIE['username'];} ?></a></li>
 			   </ul>
 			</div>
 		 </div>

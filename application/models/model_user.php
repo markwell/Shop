@@ -39,6 +39,7 @@ class Model_Login extends Model
             # Ставим куки
             setcookie("id", $data['user_id'], time() + 60 * 60 * 24 * 30);
             setcookie("hash", $hash, time() + 60 * 60 * 24 * 30);
+            setcookie("username", $login, time() + 60 * 60 * 24 * 30);
             return null;
         } else {
             
