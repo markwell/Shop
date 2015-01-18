@@ -10,6 +10,14 @@ class Controller_User extends Controller
     {
         $this->view->generate('login_view.php', 'template_view.php');
     }
+    function action_showMain()
+    {
+        $this->view->generate('main_view.php', 'template_view.php');
+    }  
+    function action_showContacts()
+    {
+        $this->view->generate('contacts_view.php', 'template_view.php');
+    }
     function action_authUser()
     {
         if (isset($_POST['submit'])) {
@@ -113,7 +121,7 @@ class Controller_User extends Controller
                 $this->view->generate('login_view.php', 'template_view.php', $message);
             } else {
                         $items = $this->model->getOrderItems($_COOKIE['id']);
-                        $this->view->generate('orders_view.php', 'template_view.php', $items);
+                        $this->view->generate('main_view.php', 'template_view.php', $items); //в разработке
                     }
             } else {
                         $message = "Пожалуйста, включите куки.";
@@ -142,4 +150,6 @@ class Controller_User extends Controller
                             }
                 
                 }
-    }   }
+    } 
+
+}
