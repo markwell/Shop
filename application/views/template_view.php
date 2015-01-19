@@ -39,17 +39,17 @@
 				  <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<b class="caret"></b></a>
 					 <ul class="dropdown-menu">
-						<li><a href="/shop/user/getitemsandshow?category=2">Китайская кухня</a></li> 
+						<li><a href="/shop/user/getitemsandshow?category=2"><?php echo $_COOKIE['category1']; ?></a></li> 
 						<li class="divider"></li>
-						<li><a href="/shop/user/getitemsandshow?category=1">Итальянская кухня</a></li>
-						<li><a href="/shop/user/getitemsandshow?category=4">Русская кухня</a></li>
-						<li><a href="/shop/user/getitemsandshow?category=3">Узбекская кухня</a></li>
+						<li><a href="/shop/user/getitemsandshow?category=1"><?php echo $_COOKIE['category2']; ?></a></li>
+						<li><a href="/shop/user/getitemsandshow?category=4"><?php echo $_COOKIE['category3']; ?></a></li>
+						<li><a href="/shop/user/getitemsandshow?category=3"><?php echo $_COOKIE['category4']; ?></a></li>
 					 </ul>
 				  </li>
 				  <li><a href="/shop/user/getitemsandshow">Товары</a></li>
 				  <li><a href="/shop/user/getOrderItemsAndShow">Корзина</a></li>
 				  <li><a href="/shop/user/showcontacts">Контакты</a></li>
-				  <li><a href=""><?php if (isset($_COOKIE['username'])){echo 'Пользователь: '.$_COOKIE['username'];} ?></a></li>
+				  <li><a><?php if (isset($_COOKIE['username'])){echo 'Пользователь: '.$_COOKIE['username'];} ?></a></li>
 			   </ul>
 			</div>
 		 </div>
@@ -71,9 +71,9 @@
 				<div class="panel-footer">
 					<ul class="list-inline">
 						<li><span class="divider"></span><a href="/shop/">Главная</a></li>
-						<li><span class="divider"></span><a href="/shop/register">Регистрация</a></li>
-						<li><span class="divider"></span><a href="/shop/user">Авторизация</a></li>
-						<li><span class="divider"></span><a href="/shop/user/logoutUser">Выход</a></li>
+						<li><span class="divider"></span><a href="/shop/user/showRegister">Регистрация</a></li>
+						<li><span class="divider"></span><a href="/shop/user/showlogin">Авторизация</a></li>
+						<!-- <li><span class="divider"></span><a href="/shop/user/logoutUser">Выход</a></li> -->
 					</ul>
 				</div>
 			</div>

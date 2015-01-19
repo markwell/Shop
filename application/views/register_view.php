@@ -2,7 +2,7 @@
 	<div class="container">	
 		<h2>Регистрация</h2><br>
 		 <div class="row">
-		<form role="form" method="POST" action="/shop/register/newuser">
+		<form role="form" method="POST" action="/shop/user/newuser">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Логин</label>
 		    <input type="login" class="form-control" id="exampleInputEmail1" name="login" placeholder="Enter login" required>

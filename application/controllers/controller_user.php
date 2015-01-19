@@ -3,10 +3,15 @@ class Controller_User extends Controller
 {
     function __construct()
     {
-        $this->model = new Model_Login();
+        $this->model = new Model_User();
         $this->view  = new View();
+        $category = $this->model->getCategory();
+        setcookie("category1", $category['0']['name'], time() + 60 * 60 * 24 * 30);
+        setcookie("category2", $category['1']['name'], time() + 60 * 60 * 24 * 30);
+        setcookie("category3", $category['2']['name'], time() + 60 * 60 * 24 * 30);
+        setcookie("category4", $category['3']['name'], time() + 60 * 60 * 24 * 30);
     }
-    function action_index()
+    function action_showLogin()
     {
         $this->view->generate('login_view.php', 'template_view.php');
     }
@@ -14,9 +19,26 @@ class Controller_User extends Controller
     {
         $this->view->generate('main_view.php', 'template_view.php');
     }  
+    function action_showRegister()
+    {
+        $this->view->generate('register_view.php', 'template_view.php');
+    }  
     function action_showContacts()
     {
         $this->view->generate('contacts_view.php', 'template_view.php');
+    }
+    function action_newUser()
+    {
+        if (isset($_POST['submit'])) {
+            $error = $this->model->checkAndAddUser($_POST['login'], $_POST['password'], $_POST['repass']);
+            if (count($error) == 0) {
+                $this->view->generate("login_view.php", 'template_view.php');
+            } else {
+                $this->view->generate('register_view.php', 'template_view.php', array(
+                    'error' => $error
+                ));
+            }
+        }
     }
     function action_authUser()
     {
@@ -49,6 +71,7 @@ class Controller_User extends Controller
     function action_logoutUser()
     {
         setcookie("id", "", time() - 3600*24*30*12, "/");
+        setcookie("username", "", time() - 3600*24*30*12, "/");
         setcookie("hash", "", time() - 3600*24*30*12, "/");
     } 
     function action_getItemsAndShow()
