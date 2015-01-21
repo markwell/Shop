@@ -1,15 +1,16 @@
 <?php
 class Controller_User extends Controller
-{
+{ 
     function __construct()
     {
         $this->model = new Model_User();
         $this->view  = new View();
         $category = $this->model->getCategory();
-        setcookie("category1", $category['0']['name'], time() + 60 * 60 * 24 * 30);
-        setcookie("category2", $category['1']['name'], time() + 60 * 60 * 24 * 30);
-        setcookie("category3", $category['2']['name'], time() + 60 * 60 * 24 * 30);
-        setcookie("category4", $category['3']['name'], time() + 60 * 60 * 24 * 30);
+        global $HTTP_POST_VARS;
+        $HTTP_POST_VARS["category1"] = $category['0']['name'];
+        $HTTP_POST_VARS["category2"] = $category['1']['name'];
+        $HTTP_POST_VARS["category3"] = $category['2']['name'];
+        $HTTP_POST_VARS["category4"] = $category['3']['name'];
     }
     function action_showLogin()
     {
