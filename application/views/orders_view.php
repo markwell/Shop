@@ -11,17 +11,27 @@ foreach($data as $row)
 							'.$row['name'].'
 						</h4>
 						'.$row['description'].'
-						<span>ID: '.$row['id'].'</span>
+						<p>ID: '.$row['id'].'</p>
 					</div>
 				</div>
 			</div>
 		</div>';
     }
 ?>
-<form role="form" method="POST" action="/shop/user/deleteItemFromOrder">
-<div class="form-group">
-  <label for="exampleInputEmail1">Введите ID товара для удаления из корзины</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" name="deleteItem" placeholder="Enter ID" required>
+<br />
+<br />
+<br />
+<div class="container text-center">
+	<div class="row">
+		<form role="form" method="POST" action="/shop/user/deleteItemFromOrder">
+			<div class="form-group">
+  				<label for="exampleInputEmail1">Введите ID товара для удаления из корзины</label>
+  				<input type="email" class="form-control" id="exampleInputEmail1" name="deleteItem" placeholder="Enter ID" required>
+			</div>
+  			<input name="submit" type="submit" class="btn btn-default" value="Удалить">
+		</form>
+	</div>
 </div>
-  <input name="submit" type="submit" class="btn btn-default" value="Удалить">
-</form>
+<br />
+<br />
+<br />

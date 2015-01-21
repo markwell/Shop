@@ -114,11 +114,11 @@ class Model_User extends Model
     }
      public function getOrderItems($user_id)
     {
-        $query = $this->DBH->prepare("SELECT * FROM item WHERE id IN (SELECT item_id FROM orders WHERE user_id =:user_id )");
+        $query = $this->DBH->prepare("SELECT * FROM item WHERE id IN (SELECT item_id FROM orders WHERE user_id =:user_id)"); 
         $query->bindParam(':user_id', $user_id);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        
+        return $result;
     }
     public function getCategoryItems($category)
     {

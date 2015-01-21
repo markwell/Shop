@@ -145,7 +145,7 @@ class Controller_User extends Controller
                 $this->view->generate('login_view.php', 'template_view.php', $message);
             } else {
                         $items = $this->model->getOrderItems($_COOKIE['id']);
-                        $this->view->generate('main_view.php', 'template_view.php', $items); //в разработке
+                        $this->view->generate('orders_view.php', 'template_view.php', $items); //в разработке
                     }
             } else {
                         $message = "Пожалуйста, включите куки.";
