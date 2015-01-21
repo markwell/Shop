@@ -100,7 +100,7 @@ class Model_User extends Model
     }
     public function deleteItemFromOrder($user_id, $item_id)
     {
-        $query = $this->DBH->prepare("DELETE FROM orders WHERE user_id=:user_id, item_id=:item_id");
+        $query = $this->DBH->prepare("DELETE FROM orders WHERE user_id=:user_id AND item_id=:item_id");
         $query->bindParam(':user_id', $user_id);
         $query->bindParam(':item_id', $item_id);
         $query->execute();
