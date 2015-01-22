@@ -7,10 +7,10 @@ class Controller_User extends Controller
         $this->view  = new View();
         $category = $this->model->getCategory();
         global $HTTP_POST_VARS;
-        $HTTP_POST_VARS["category1"] = $category['0']['name'];
-        $HTTP_POST_VARS["category2"] = $category['1']['name'];
-        $HTTP_POST_VARS["category3"] = $category['2']['name'];
-        $HTTP_POST_VARS["category4"] = $category['3']['name'];
+        for ($i = 1; $i <= count($category); $i++) 
+        {
+            $HTTP_POST_VARS[$i] = $category[$i - 1]['name'];
+        }
     }
     function action_showLogin()
     {
