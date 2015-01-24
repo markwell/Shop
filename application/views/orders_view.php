@@ -26,7 +26,7 @@ foreach($data as $row)
 		<form role="form" method="POST" action="/shop/user/deleteItemFromOrder" class="form-inline">
 			<div class="form-group">
   				<label for="exampleInputEmail1">Введите ID товара для удаления из корзины</label>
-  				<input type="email" class="form-control" id="exampleInputEmail1" name="deleteItem" placeholder="Enter ID" required>
+  				<input type="text" class="form-control" id="exampleInputEmail1" name="deleteItem" placeholder="Enter ID" required>
 			</div>
 			<br />
 			<br />

@@ -107,7 +107,7 @@ class Controller_User extends Controller
               if ($start < 1) $start = 1;
             }
         }
-        $paginationData = array('count_pages' => $count_pages, 'active' => $active, 'url' => $url, 'url_page' => $url_page, 'start' => $start, 'end' => $end, 'category' => $category); //создаем массив для View
+        @$paginationData = array('count_pages' => $count_pages, 'active' => $active, 'url' => $url, 'url_page' => $url_page, 'start' => $start, 'end' => $end, 'category' => $category); //создаем массив для View
         setcookie("item_id", $items[$paginationData['active']-1]['id'], time() + 60 * 60 * 24 * 30); //добавляем в куки ID товара(для добавления товара в корзину)
         $this->view->generate('items_view.php', 'template_view.php', array('items' => $items,'pagination' => $paginationData));//передаем View
     }

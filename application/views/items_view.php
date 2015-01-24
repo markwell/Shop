@@ -1,4 +1,5 @@
 
+		<?php if (count($data['items']) != 0) { ?> <!-- проверяем на наличие элементов -->
 		<!-- тут выводим сам объект в соответствии с номером текущего элемента в пагинации -->
 		'<div class="container text-center">
 			<div class="row">
@@ -17,7 +18,7 @@
 				</div>
 			</div>
 		</div>
-
+		<?php if ((count($data['items']) != 1)) { ?>
 		<!-- Тут выводим саму пагинацию -->
 		<div class="container text-center">
 			<div class="row">
@@ -57,5 +58,7 @@
 				</nav>
 			</div>
 		</div>
-<?php  ?>
+		<?php } ?>
+		<?php } else echo '<h4 class="media-heading container text-center">Запрос не содержит элементов</h4>'?>
+
 
